@@ -40,6 +40,14 @@
         
         <!-- tracking mouse movement inside box -->
         <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
+
+        <h1>Event Modifiers (more at <a href="https://vuejs.org/v2/guide/events.html">eventmods</a>)</h1>
+        <!-- event modifier .once only fires function once -->
+        <button @click.once="add(1)">Add a year (.once fires function once only)</button>
+        <p>My age is {{ age }}</p>
+
+        <!-- prevent default behavior -->
+        <a v-on:click.prevent="click" href="https://google.com">The Net Ninja Website</a>
     </div>
 </body>
     <script src="app.js"></script>
