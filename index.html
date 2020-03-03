@@ -9,13 +9,37 @@
 </head>
 <body>
     <div id="vue-app">
+        <!-- Displaying a method/function that takes a parameter -->
         <h1>{{ greet('night') }}</h1>
-        <a v-bind:href="website">The Net Ninja</a><!-- v-bind: binding data
-        to different attributes on a element -->
+        
+        <!-- v-bind: binding data to different attributes on an element -->
+        <a v-bind:href="website">The Net Ninja</a>
+        
+        <!-- v:bind on input value to add job to form -->
         <input type="text" v-bind:value="job">
+       
+        <!-- v-html - within this p tag put this html -->
         <p v-html="websiteTag"></p>
+        
+        <!-- displaying data objects -->
         <p>Name: {{ name }}</p>
         <p>Job: {{ job }}</p>
+        
+        <h1>Events</h1>
+        <!-- v-on: binding button click to add a year to age data object, listening for click event -->
+        <!-- @ is shorthand for v:on -->
+        <button @click="add(1)">Add a year</button>
+        <!-- v-on: binding button click to sub a year from age data object --> 
+        <button v-on:click="sub(1)">Sub a year</button>
+        <!-- v-on: double click adds 10, listening for click event -->
+        <!-- @ is shorthand for v:on -->
+        <button @dblclick="add(10)">Add 10 years</button>
+        <!-- v-on: double click subs 10 --> 
+        <button v-on:dblclick="sub(10)">Sub 10 years</button>  
+        <p>My age is {{ age }}</p>
+        
+        <!-- tracking mouse movement inside box -->
+        <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
     </div>
 </body>
     <script src="app.js"></script>
