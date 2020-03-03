@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS Tutorials</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="vue-app">
+        <h1>{{ greet('night') }}</h1>
+        <a v-bind:href="website">The Net Ninja</a><!-- v-bind: binding data
+        to different attributes on a element -->
+        <input type="text" v-bind:value="job">
+        <p v-html="websiteTag"></p>
+        <p>Name: {{ name }}</p>
+        <p>Job: {{ job }}</p>
+    </div>
+</body>
+    <script src="app.js"></script>
+</html>
