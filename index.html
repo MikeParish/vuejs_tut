@@ -113,7 +113,32 @@
                 <p>{{key}} - {{val}}</p>
             </div>
         </template>
+
+        <!-- bag image -->
+        <div id="bag" v-bind:class="{burst: ended}">
+            
+        </div>
         
+        <!-- bag health -->
+        <div id="bag-health">
+            <div v-bind:style="{width: health + '%'}"></div>
+        </div>
+        
+        <!-- game controls -->
+        <div id="controls">
+            <button v-on:click="punch" v-show="!ended">Punch</button>
+            <button v-on:click="restart">Restart</button>
+        </div>
+
+        <!-- component: finds the component matching this name and inputs what's there -->
+        <greeting></greeting>
+
+        <h2>Refs</h2>
+        <input type="text" ref="input"/> <!-- can access element in Vue instance -->
+        <button v-on:click="readRefs">Submit</button>
+        <p>Your fav food: {{ output }}</p>
+        <div ref="test">Hello</div>
+
     </div>
 </body>
     <script src="app.js"></script>

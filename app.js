@@ -1,3 +1,17 @@
+Vue.component('greeting', {
+    template: '<p>Hey there, I am {{ name }}. <button v-on:click="changeName">Change name</button></p>',
+    data: function() {
+        return {
+            name: 'Yoshi',
+        }
+    },
+    methods: {
+        changeName: function() {
+            this.name = 'Mario';
+        }
+    }
+});
+
 new Vue({
     el: '#vue-app',
     data: {
@@ -17,6 +31,9 @@ new Vue({
         nearby: false,
         error: false,
         success: false,
+        health: 100,
+        ended: false,
+        output: 'Your fav food',
 
         /* array of strings */
         characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
@@ -59,6 +76,20 @@ new Vue({
             console.log('addToB');
             return this.b + this.age3;
         },*/
+        punch: function() {
+            this.health -= 10;
+            if (this.health <= 0) {
+                this.ended = true;
+            }
+        },
+        restart: function() {
+            this.health = 100;
+            this.ended = false;
+        },
+        readRefs: function() {
+            console.log(this.$refs.input.value);
+            this.output = this.$refs.input.value;
+        }
     },
     computed: {
         addToA: function() {
